@@ -17,13 +17,10 @@ const Nav = () => {
                                 Home
                             </a>
                             <a href="/" className="text-slate-200 hover:bg-slate-200 hover:text-slate-800 rounded-lg p-2">
-                                About
-                            </a>
-                            <a href="/" className="text-slate-200 hover:bg-slate-200 hover:text-slate-800 rounded-lg p-2">
                                 check here!
                             </a>
                             <a href="/" className="text-slate-200 hover:bg-slate-200 hover:text-slate-800 rounded-lg p-2">
-                                Contact
+                                About
                             </a>
                         </div>
                     </div>
