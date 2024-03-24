@@ -25,9 +25,9 @@ const Nav = () => {
                             <a href="/" className="text-slate-200 hover:bg-slate-200 hover:text-slate-800 rounded-lg p-2">
                                 Dashboard
                             </a>
-                            <a href="/" className="text-slate-200 hover:bg-slate-200 hover:text-slate-800 rounded-lg p-2">
+                            {/* <a href="/" className="text-slate-200 hover:bg-slate-200 hover:text-slate-800 rounded-lg p-2">
                                 About
-                            </a>
+                            </a> */}
                         </div>
                     </div>
                     <div className="md:hidden flex items-center">
@@ -77,9 +77,9 @@ const Nav = () => {
                             <a href="/" className="text-slate-200 block hover:bg-slate-200 hover:text-slate-800 rounded-lg p-2">
                                 Dashboard
                             </a>
-                            <a href="/" className="text-slate-200 block hover:bg-slate-200 hover:text-slate-800 rounded-lg p-2">
+                            {/* <a href="/" className="text-slate-200 block hover:bg-slate-200 hover:text-slate-800 rounded-lg p-2">
                                 About
-                        </a>
+                        </a> */}
                     </div>
                 </div>
             )}
