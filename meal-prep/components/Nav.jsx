@@ -75,7 +75,7 @@ const Nav = () => {
                                 Home
                         </a>
                             <a href="/" className="text-slate-200 block hover:bg-slate-200 hover:text-slate-800 rounded-lg p-2">
-                                Dashborad
+                                Dashboard
                             </a>
                             <a href="/" className="text-slate-200 block hover:bg-slate-200 hover:text-slate-800 rounded-lg p-2">
                                 About
