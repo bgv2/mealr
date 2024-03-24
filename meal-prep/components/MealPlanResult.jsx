@@ -1,16 +1,44 @@
-import React from 'react';
-import dynamic from 'next/dynamic';
+'use client'
+import React, { useEffect, useState } from 'react';
+import Recipe from '@/components/Recipe';
 
-const ResultServer = dynamic(() => import('./ResultServer'), { ssr: true }); // Load server component dynamically with SSR
-const ResultClient = dynamic(() => import('./ResultClient'), { ssr: false }); // Load client component dynamically without SSR
+const MealPlanResult = ({ initialMealPlan }) => {
+  const [thisWeekMealPlan, setThisWeekMealPlan] = useState(initialMealPlan);
 
-const Result = () => {
-    return (
-        <div>
-            <ResultServer /> {/* Render server component */}
-            <ResultClient /> {/* Render client component */}
-        </div>
-    );
+  useEffect(() => {
+    localStorage.setItem('thisWeekMealPlan', JSON.stringify(thisWeekMealPlan));
+  }, [thisWeekMealPlan]);
+
+  return (
+        <>
+        <h1>Your Meal Plan</h1>
+        {thisWeekMealPlan && Object.keys(thisWeekMealPlan).map((day) => (
+            <div key={day}>
+            <h2>{day}</h2>
+            {thisWeekMealPlan[day].map((recipe, index) => (
+                <Recipe key={index} food={recipe.name} />
+            ))}
+            </div>
+        ))}
+        </>
+
+  );
+};
+
+export async function getServerSideProps() {
+  const initialMealPlan = { Sunday: [], Monday: [], Tuesday: [], Wednesday: [], Thursday: [], Friday: [], Saturday: [] };
+  try {
+    for (let index = 1; index <= 3; index++) {
+      const recipe = await fetch("/api/findrecipe" + new URLSearchParams({ health: "vegetarian" }));
+      const recipeJson = await recipe.json();
+      initialMealPlan.Sunday.push(recipeJson.hits[0], recipeJson.hits[1], recipeJson.hits[2]);
+    }
+    return { props: { initialMealPlan } };
+  } catch (error) {
+    console.error("Error fetching recipes:", error);
+    return { props: { initialMealPlan } };
+  }
 }
 
-export default Result;
+export default MealPlanResult;
+
