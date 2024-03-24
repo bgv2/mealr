@@ -6,7 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions , Modal, Box} from '@mui/material';
 import { useState } from 'react';
-export default function MultiActionAreaCard(props) {
+export default function Recipe(props) {
     const style = {
         position: 'absolute',
         top: '50%',
