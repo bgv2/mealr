@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { useState } from 'react';
-
+import Image from 'next/image'
 const Nav = () => {
     const [isClicked,setisClicked] = useState(false);
     const toggleNavbar = () => {
@@ -14,7 +14,7 @@ const Nav = () => {
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
                         <div className="flex-shrink-0">
-                            <a href="/">Logo</a>
+                            <a href="/"><Image src="/assets/logo.png" alt="logo" width={100} height={100}/></a>
                         </div>
                     </div>
                     <div className="hidden md:block">
@@ -68,6 +68,21 @@ const Nav = () => {
                     </div>
                 </div>
             </div>
+            {isClicked && (
+                <div className='md-hidden'>
+                    <div className='px-2 py-2 space-y-1 sm:px-3'>
+                        <a href="/" className="text-slate-200 block hover:bg-slate-200 hover:text-slate-800 rounded-lg p-2">
+                                Home
+                        </a>
+                            <a href="/" className="text-slate-200 block hover:bg-slate-200 hover:text-slate-800 rounded-lg p-2">
+                                Dashborad
+                            </a>
+                            <a href="/" className="text-slate-200 block hover:bg-slate-200 hover:text-slate-800 rounded-lg p-2">
+                                About
+                        </a>
+                    </div>
+                </div>
+            )}
         </nav>
     </>
   )
