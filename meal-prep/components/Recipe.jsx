@@ -43,7 +43,7 @@ export default function Recipe(props) {
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          Close
+          Swap
         </Button>
         <div>
             <Button onClick={handleOpen}>Info</Button>
@@ -53,13 +53,14 @@ export default function Recipe(props) {
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
             >
-            <Box sx={style}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
+            <Box sx={style} className='rounded'>
+            <h6 className="text-lg font-bold" id="modal-modal-title" variant="h6" component="h2">
                 Nutrition Facts
-            </Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            </h6>
+            <br/>
+            <p id="modal-modal-description" sx={{ mt: 2 }}>
                 {props.nutrition}
-            </Typography>
+            </p>
             </Box>
         </Modal>
         </div>

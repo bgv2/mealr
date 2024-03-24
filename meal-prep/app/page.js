@@ -1,12 +1,54 @@
+"use client"
+
 import Image from "next/image";
 import Nav from "@/components/Nav";
 import Banner from "@/components/Banner";
 import Recipe from "@/components/Recipe";
 import Footer from "@/components/Footer";
 import MealPlanResult from "@/components/MealPlanResult";
+import { Button, CardActionArea, CardActions , Modal, Box} from '@mui/material';
+import { useState } from 'react';
+
 
 
 export default function Home() {
+  const dietaryRestrictions = [
+    "alcohol-free",
+    "celery-free",
+    "crustacean-free",
+    "dairy-free",
+    "DASH",
+    "egg-free",
+    "fish-free",
+    "fodmap-free",
+    "gluten-free",
+    "immuno-supportive",
+    "keto-friendly",
+    "kidney-friendly",
+    "kosher",
+    "low-fat-abs",
+    "low-potassium",
+    "low-sugar",
+    "lupine-free",
+    "Mediterranean",
+    "mollusk-free",
+    "mustard-free",
+    "no-oil-added",
+    "paleo",
+    "peanut-free",
+    "pescatarian",
+    "pork-free",
+    "red-meat-free",
+    "sesame-free",
+    "shellfish-free",
+    "soy-free",
+    "sugar-conscious",
+    "sulfite-free",
+    "tree-nut-free",
+    "vegan",
+    "vegetarian",
+    "wheat-free"
+]
   const exampleNutrition = <>
     <h3>Placeholder</h3>
     <table>
@@ -30,11 +72,26 @@ export default function Home() {
       </td>
     </table>
   </>
+    const [open, setOpen] = useState(false);
 
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+    const style = {
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      width: 500,
+      bgcolor: 'background.paper',
+      border: '2px solid #000',
+      boxShadow: 24,
+      p: 4,
+    };
   return (
     <main>
       <Nav />
-      <Banner />
+      <Banner btnAction={handleOpen} />
       <MealPlanResult />
       <div className="bg-gradient-to-b from-slate-100 via-slate-200 to-slate-300">
         <h1 className="text-4xl font-extrabold m-5">Your Meal Plan</h1>
@@ -48,6 +105,29 @@ export default function Home() {
           />
           <Recipe food="Pasta" description="Noodles, sauce, cheese, ..." nutrition={exampleNutrition} url="https://www.allrecipes.com/thmb/TLZs83FimfwATbwnpBKelVQ-elY=/0x512/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/14385-pasta-salad-DDMFS-4x3-28eb5dbe00624780b36cabfef15ca183.jpg" />
         </div>
+        <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+            >
+            <Box sx={style} className='rounded'>
+            <h6 className="text-2xl font-bold" id="modal-modal-title" variant="h6" component="h2">
+            Let's get some info about you.
+            </h6>
+            <br/>
+            <h6 className="text-lg font-bold" id="modal-modal-title" variant="h6" component="h2">
+            Dietary Restrictions
+            </h6>
+            <p id="modal-modal-description" sx={{ mt: 2 }}>
+              <ul >
+                {dietaryRestrictions.map((restriction) => {
+                  return <li>{restriction}</li>
+                })}
+              </ul>
+            </p>
+            </Box>
+        </Modal>
         <Footer />
       </div>
     </main>
