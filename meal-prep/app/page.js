@@ -2,6 +2,7 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import Banner from "@/components/Banner";
 import Recipe from "@/components/Recipe";
+import Footer from "@/components/Footer";
 
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
       <Nav />
       <Banner/>
       <Recipe />
+      <Footer />
     </main>
   );
 }
