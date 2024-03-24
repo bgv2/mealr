@@ -29,7 +29,7 @@ export default function Recipe(props) {
         <CardMedia
           component="img"
           height="140"
-          image={props.url}
+          image={props.url || "https://placehold.co/926x618"}
           alt="food"
         />
         <CardContent>

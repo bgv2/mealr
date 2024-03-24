@@ -11,7 +11,7 @@ const MealPlanResult = ({ initialMealPlan }) => {
 
   return (
         <>
-        <h1>Your Meal Plan</h1>
+        {/* <h1>Your Meal Plan</h1> */}
         {thisWeekMealPlan && Object.keys(thisWeekMealPlan).map((day) => (
             <div key={day}>
             <h2>{day}</h2>
