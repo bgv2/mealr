@@ -13,31 +13,10 @@ import { useState } from 'react';
 
 export default function Home() {
   const dietaryRestrictions = [
-    "alcohol-free",
     "celery-free",
     "crustacean-free",
     "dairy-free",
-    "DASH",
     "egg-free",
-    "fish-free",
-    "fodmap-free",
-    "gluten-free",
-    "immuno-supportive",
-    "keto-friendly",
-    "kidney-friendly",
-    "kosher",
-    "low-fat-abs",
-    "low-potassium",
-    "low-sugar",
-    "lupine-free",
-    "Mediterranean",
-    "mollusk-free",
-    "mustard-free",
-    "no-oil-added",
-    "paleo",
-    "peanut-free",
-    "pescatarian",
-    "pork-free",
     "red-meat-free",
     "sesame-free",
     "shellfish-free",
@@ -87,6 +66,7 @@ export default function Home() {
       border: '2px solid #000',
       boxShadow: 24,
       p: 4,
+      overflow: 'scroll',
     };
   return (
     <main>
@@ -117,14 +97,15 @@ export default function Home() {
             </h6>
             <br/>
             <h6 className="text-lg font-bold" id="modal-modal-title" variant="h6" component="h2">
-            Dietary Restrictions
+            
             </h6>
             <p id="modal-modal-description" sx={{ mt: 2 }}>
-              <ul >
+              <details><summary>Dietary Restrictions</summary>
+              <ul>
                 {dietaryRestrictions.map((restriction) => {
                   return <li>{restriction}</li>
                 })}
-              </ul>
+              </ul></details>
             </p>
             </Box>
         </Modal>
